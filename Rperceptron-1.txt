@@ -1,0 +1,131 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package perceptron;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+/**
+ *
+ * @author santiago
+ */
+public class Perceptron {
+
+    /**
+     * @param args the command line arguments
+     * Algoritmo Perceptron.
+     */
+    
+    //Entradas: 0 y 1
+    //static double entrada;
+    static int funcionActivacion(double gamma){
+        if(gamma > 0){
+                /*
+                System.out.println("\rgamma > 0");
+                System.out.println("W1 + (" + entrada + ") W0 = " + gamma );
+                System.out.println("\r\tRegresa: 1");
+                */
+                return 1;
+            }
+           
+            
+        else {
+                /*
+                System.out.println("\rgamma <= 0");
+                System.out.println("W1 + (" + entrada + ") W0 = " + gamma );
+                System.out.println("\r\tRegresa: 0");
+                */
+                return 0;
+            }
+    }
+    
+    static boolean Salir(String salida){
+        
+        if(salida.toUpperCase().equals("S")){
+                System.out.print("- Salida... ");
+                return false;
+            }
+        else 
+            return true;
+    }
+    
+    
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+        
+        System.out.println("\tPerceptron NOT.");
+        boolean salir = true;
+        int contadorEntradas = 1;   
+        double gamma;
+ 
+        Scanner entradaTeclado = new Scanner(System.in);
+        double entrada;
+        double wcero = .5;
+        double wuno = -1;
+        
+        while(salir){
+            
+           
+            System.out.print("\n[" + contadorEntradas + "]Introduce entrada 0/1: ");
+                entrada = entradaTeclado.nextDouble();    
+            /*
+             *Para probar diferentes pesos comentar las constantes wcero y wuno,
+             * y descomentar el siguiente bloque comentado.
+            */
+                
+            //System.out.print("Introduce peso w0: ");
+            //double wcero = entradaTeclado.nextDouble();
+            //System.out.print("Introduce peso w1: ");
+            //double wuno = entradaTeclado.nextDouble();
+            
+            System.out.println("Entrada: " + entrada);
+            System.out.println("Peso w0: " + wcero);
+            System.out.println("Peso w1: " + wuno);
+            
+            //Calculo de gamma.
+            System.out.println("\nCalculo valores para Activación: \n");
+                gamma = wcero + (entrada * wuno);                
+            System.out.println("W1 + (" + entrada + ") W0 = " + gamma );
+            
+            //Funcion de Activacion.
+            System.out.println("\nFunción de Activación:\n");
+            System.out.println("\tRegresa: " + funcionActivacion(gamma));
+            
+            
+            //Salida del programa.
+            System.out.print("\rDesea Salir apriete la letra [S] para Continuar la letra [C]:");
+            String salida = entradaTeclado.next();
+            
+            //System.out.println("Escape: " +  escape);
+            //Salida
+            contadorEntradas++;
+            salir = Salir(salida);
+            
+   
+        }
+        
+        
+        System.out.println("Fin.");
+    }
+}
+
+
+System.out.println("Valores para NOT";
+System.out.println("Bias = .5");
+System.out.println("Peso = -1");
+System.out.println("Valores para OR");
+System.out.println("Bias = 0");
+System.out.println("Peso = 1");
+System.out.println("Peso = 1");
+System.out.println("Valores para AND");
+System.out.println("Bias = -1");
+System.out.println("Peso = 1");
+System.out.println("Peso = 1");
+
+
+System.out.println("Valores para AND");
+System.out.println("Bias = .5\tBias = 0\tBias = -1");
+System.out.println("Peso = -1\tPeso = 1\tPeso = 1");
+System.out.println("    -    \tPeso = 1\tPeso = 1");
